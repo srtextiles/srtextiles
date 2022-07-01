@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/utilities.css">
+    <style>
+
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+    <title> SR Textiles </title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="container flex">
+            <b><h1 class="logo"> SR Textiles </h1></b>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="services">Services</a></li>
+                    <li><a href="product">Products</a></li>
+                    <li><a href="wholesale">Wholesale</a></li>
+                    <li><a href="contact">Testmonials</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Showcase -->
+    <section class="showcase">
+        <div class="container grid">
+            <div class="showcase-text">
+                <h1>We’re Eco-Friendly!</h1>
+                <p>No.1 clothing manufacture site where we produce and manufacture products from the first class quality threads.</p>
+                <a href="features" class="btn btn-dark">Read More</a>
+            </div>
+
+            <div class="showcase-form card">
+                <h2>Subscribe us!</h2>
+                <!--  <form name="contact" netlify-honeypot="bot-field" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="contact">
+                    <p class="hidden">
+                        <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+                      </p>
+                    <div class="form-control">
+                        <input type="text" name="name" placeholder="Name" required>
+                    </div>
+                    <div class="form-control">
+                        <input type="text" name="company" placeholder="Company Name" required>
+                    </div>
+                    <div class="form-control">
+                        <input type="email" name="email" placeholder="Email" required>
+                    </div>
+                    <input type="submit" value="Send" class="btn btn-primary">
+					
+					
+					<input name="nom" type="text" value="Name" onfocus="if(this.value==this.defaultValue)this.value=";" onblur="if(this.value==")this.value = this.defaultValue;">
+						
+					
+					
+                </form> -->
+                <form action="./subscribeus">
+                    <div class="form-control">
+
+                        <input type="text" name="name" value="Name" onfocus="if(this.value==this.defaultValue)this.value=' '; " onblur="if(this.value==' ')this.value = this.defaultValue;" required>
+                    </div>
+                    <div class="form-control">
+                        <input type="text" name="number" value="Phone number" onfocus="if(this.value==this.defaultValue)this.value=' '; " onblur="if(this.value==' ')this.value = this.defaultValue;" required>
+                    </div>
+                    <div class="form-control">
+                        <input type="email" name="email" value="Email" onfocus="if(this.value==this.defaultValue)this.value=' '; " onblur="if(this.value==' ')this.value = this.defaultValue;" required>
+                    </div>
+                    <input type="submit" value="Send" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="container">
+            <h3 class="stats-heading text-center my-1">
+                Welcome to the best site for witnessing the best products in the market
+            </h3>
+
+            <div class="grid grid-3 text-center my-4">
+                <div>
+                    <i class="fas fa-certificate fa-2x"></i>
+                    <h3>3 awards</h3>
+                    <p class="text-secondary">Certified</p>
+                </div>
+                <div>
+                    <i class="fa fa-tasks fa-2x" aria-hidden="true"></i>
+                    <h3>7</h3>
+                    <p class="text-secondary">Launched Products</p>
+                </div>
+                <div>
+                    <i class="fas fa-project-diagram fa-3x"></i>
+                    <h3>89,765</h3>
+                    <p class="text-secondary">Products manufactured</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cli -->
+    <section class="cli">
+        <div class="container grid">
+            <img src="images/sr45.jpg" alt="">
+            <div class="card">
+                <h3>Highest quality with cheapest price</h3>
+            </div>
+            <div class="card">
+                <h3>Trust worthy products</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cloud -->
+    <section class="cloud bg-primary my-2 py-2">
+        <div class="container grid">
+            <div class="text-center">
+                <h2 class="lg">Shop A Lot, Spend A Little</h2>
+                <p class="lead my-1">Delivering products at your doorstep!</p>
+                <a href="product" class="btn btn-dark">Read More</a>
+            </div>
+            <img src="images/delivery-removebg-preview.png" alt="">
+        </div>
+    </section>
+
+    <!-- Languages -->
+    <section class="languages">
+        <h2 class="md text-center my-2">
+            <b> Best sold products </b>
+        </h2>
+        <div class="container flex">
+            <div class="card">
+                <h4>Blue Green Saree</h4>
+                <a href="sarees"> <img src="images/sr35.jpg" width="10" height="150" alt="">
+            </div>
+            <div class="card">
+                <h4>Cotton dhoti</h4>
+                <a href="dhotis"> <img src="images/sr40.jpg" width="10" height="150" alt="">
+            </div>
+            <div class="card">
+                <h4>Green cotton curtains</h4>
+                <a href="curtains"><img src="images/sr41.webp" width="10" height="150" alt="">
+            </div>
+            <div class="card">
+                <h4>Cotton mats</h4>
+                <a href="rugs"> <img src="images/sr42.jpeg" width="10" height="150" alt="">
+            </div>
+            <div class="card">
+                <h4>Green cotton towels</h4>
+                <a href="towels"> <img src="images/sr43.jpg" width="10" height="150" alt="">
+            </div>
+            <div class="card">
+                <h4>Green pink saree</h4>
+                <a href="sarees"> <img src="images/sr37.webp" width="10" height="150" alt="">
+            </div>
+            <div class="card">
+                <h4>Green bedsheets</h4>
+                <a href="bedsheets"> <img src="images/sr44.jpg" width="10" height="150" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Responsive Footer - Sagar Developer</title>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+        <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+    </head>
+
+    <body>
+        <style>
+            @import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');
+            * {
+                padding: 0;
+                margin: 0;
+            }
+            
+            body {
+                font-family: 'Poppins', sans-serif;
+            }
+            
+            html {
+                background-color: #eaf0f2;
+            }
+            
+            header {
+                text-align: center;
+                padding-top: 100px;
+                margin-bottom: 300px;
+                font-size: 35px;
+            }
+            
+            header h2 {
+                color: #f0525f;
+            }
+            
+            header span {
+                color: #eaa03f;
+            }
+            /* The footer is fixed to the bottom of the page */
+            
+            footer {
+                position: fixed;
+                bottom: 0;
+            }
+            
+            @media (max-height:800px) {
+                footer {
+                    position: static;
+                }
+                header {
+                    padding-top: 40px;
+                }
+            }
+            
+            .footer-distributed {
+                background-color: #2d2a30;
+                box-sizing: border-box;
+                width: 100%;
+                text-align: left;
+                font: bold 16px sans-serif;
+                padding: 50px 50px 60px 50px;
+                margin-top: 80px;
+            }
+            
+            .footer-distributed .footer-left,
+            .footer-distributed .footer-center,
+            .footer-distributed .footer-right {
+                display: inline-block;
+                vertical-align: top;
+            }
+            /* Footer left */
+            
+            .footer-distributed .footer-left {
+                width: 30%;
+            }
+            
+            .footer-distributed h3 {
+                color: #ffffff;
+                font: normal 36px 'Cookie', cursive;
+                margin: 0;
+            }
+            
+            .footer-distributed h3 span {
+                color: #e0ac1c;
+            }
+            /* Footer links */
+            
+            .footer-distributed .footer-links {
+                color: #ffffff;
+                margin: 20px 0 12px;
+            }
+            
+            .footer-distributed .footer-links a {
+                display: inline-block;
+                line-height: 1.8;
+                text-decoration: none;
+                color: inherit;
+            }
+            
+            .footer-distributed .footer-company-name {
+                color: #8f9296;
+                font-size: 14px;
+                font-weight: normal;
+                margin: 0;
+            }
+            /* Footer Center */
+            
+            .footer-distributed .footer-center {
+                width: 35%;
+            }
+            
+            .footer-distributed .footer-center i {
+                background-color: #33383b;
+                color: #ffffff;
+                font-size: 25px;
+                width: 38px;
+                height: 38px;
+                border-radius: 50%;
+                text-align: center;
+                line-height: 42px;
+                margin: 10px 15px;
+                vertical-align: middle;
+            }
+            
+            .footer-distributed .footer-center i.fa-envelope {
+                font-size: 17px;
+                line-height: 38px;
+            }
+            
+            .footer-distributed .footer-center p {
+                display: inline-block;
+                color: #ffffff;
+                vertical-align: middle;
+                margin: 0;
+            }
+            
+            .footer-distributed .footer-center p span {
+                display: block;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 2;
+            }
+            
+            .footer-distributed .footer-center p a {
+                color: #e0ac1c;
+                text-decoration: none;
+                ;
+            }
+            /* Footer Right */
+            
+            .footer-distributed .footer-right {
+                width: 30%;
+            }
+            
+            .footer-distributed .footer-company-about {
+                line-height: 20px;
+                color: #92999f;
+                font-size: 13px;
+                font-weight: normal;
+                margin: 0;
+            }
+            
+            .footer-distributed .footer-company-about span {
+                display: block;
+                color: #ffffff;
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+            
+            .footer-distributed .footer-icons {
+                margin-top: 25px;
+            }
+            
+            .footer-distributed .footer-icons a {
+                display: inline-block;
+                width: 35px;
+                height: 35px;
+                cursor: pointer;
+                background-color: #33383b;
+                border-radius: 2px;
+                font-size: 20px;
+                color: #ffffff;
+                text-align: center;
+                line-height: 35px;
+                margin-right: 3px;
+                margin-bottom: 5px;
+            }
+            
+            .footer-distributed .footer-icons a:hover {
+                background-color: #3F71EA;
+            }
+            
+            .footer-links a:hover {
+                color: #3F71EA;
+            }
+            
+            @media (max-width: 880px) {
+                .footer-distributed .footer-left,
+                .footer-distributed .footer-center,
+                .footer-distributed .footer-right {
+                    display: block;
+                    width: 100%;
+                    margin-bottom: 40px;
+                    text-align: center;
+                }
+                .footer-distributed .footer-center i {
+                    margin-left: 0;
+                }
+            }
+        </style>
+
+        <footer class="footer-distributed">
+
+            <div class="footer-left">
+                <h3>SR<span>Textiles</span></h3>
+
+                <p class="footer-links">
+                    <a href="">Home</a> |
+                    <a href="about">About</a> |
+                    <a href="services">Services</a> |
+                    <a href="product">Products</a> |
+                    <a href="wholesale">Wholesale</a> |
+                    <a href="contact">Testimonials</a>
+                </p>
+
+                <p class="footer-company-name">Copyright © 2022 <strong>SRTextiles</strong> All rights reserved</p>
+            </div>
+
+            <div class="footer-center">
+                <div>
+                    <i class="fa fa-map-marker"></i>
+                    <p><span>Anthiyur</span> Erode
+                    </p>
+                </div>
+
+                <div>
+                    <i class="fa fa-phone"></i>
+                    <p>+91 80563 57165</p>
+                </div>
+                <div>
+                    <i class="fa fa-envelope"></i>
+                    <p><a href="mailto:sagar00001.co@gmail.com">srtextiles@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="footer-right">
+                <p class="footer-company-about">
+                    <span>About the company</span>
+                    <strong>SR Textiles</strong> is a textile company where we manufacture products using powerloom and produce high quality outputs.
+                </p>
+                <div class="footer-icons">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-youtube"></i></a>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+
+    </html>

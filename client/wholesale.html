@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js">
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+    <script src="https://kit.fontawesome.com/c26cd2166c.js">
+    </script>
+
+
+    <title> SR Textiles </title>
+</head>
+
+<body>
+    <style lang="scss">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: sans-serif;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+         :root {
+            --primary-color: #561c8c;
+            --secondary-color: #1c3fa8;
+            --dark-color: #002240;
+            --light-color: #f4f4f4;
+            --success-color: #5cb85c;
+            --error-color: #d9534f;
+        }
+        
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        ul {
+            list-style-type: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+        
+        h1,
+        h2 {
+            font-weight: 300;
+            line-height: 1.2;
+            margin: 10px 0;
+        }
+        
+        p {
+            margin: 10px 0;
+        }
+        
+        img {
+            width: 100%;
+        }
+        
+        code,
+        pre {
+            background: #333;
+            color: #fff;
+            padding: 10px;
+        }
+        
+        .hidden {
+            visibility: hidden;
+            height: 0;
+        }
+        /* Navbar */
+        
+        .navbar {
+            background-color: black;
+            color: #fff;
+            height: 70px;
+        }
+        
+        .navbar ul {
+            display: flex;
+        }
+        
+        .navbar a {
+            color: #fff;
+            padding: 10px;
+            margin: 0 5px;
+        }
+        
+        .navbar a:hover {
+            border-bottom: 2px #fff solid;
+        }
+        
+        .navbar .flex {
+            justify-content: space-between;
+        }
+        /* Showcase */
+        
+        .showcase {
+            height: 400px;
+            background-color: var(--primary-color);
+            color: #fff;
+            position: relative;
+        }
+        
+        .showcase h1 {
+            font-size: 40px;
+        }
+        
+        .showcase p {
+            margin: 20px 0;
+        }
+        
+        .showcase .grid {
+            overflow: visible;
+            grid-template-columns: 55% auto;
+            gap: 30px;
+        }
+        
+        .showcase-text {
+            animation: slideInFromLeft 1s ease-in;
+        }
+        
+        .showcase-form {
+            position: relative;
+            top: 60px;
+            height: 350px;
+            width: 400px;
+            padding: 40px;
+            z-index: 100;
+            justify-self: flex-end;
+            animation: slideInFromRight 1s ease-in;
+        }
+        
+        .showcase-form .form-control {
+            margin: 30px 0;
+        }
+        
+        .showcase-form input[type='text'],
+        .showcase-form input[type='email'] {
+            border: 0;
+            border-bottom: 1px solid #b4becb;
+            width: 100%;
+            padding: 3px;
+            font-size: 16px;
+        }
+        
+        .showcase-form input:focus {
+            outline: none;
+        }
+        
+        .showcase::before,
+        .showcase::after {
+            content: '';
+            position: absolute;
+            height: 100px;
+            bottom: -70px;
+            right: 0;
+            left: 0;
+            background: #fff;
+            transform: skewY(-3deg);
+            -webkit-transform: skewY(-3deg);
+            -moz-transform: skewY(-3deg);
+            -ms-transform: skewY(-3deg);
+        }
+        /* Stats */
+        
+        .stats {
+            padding-top: 100px;
+            animation: slideInFromBottom 1s ease-in;
+        }
+        
+        .stats-heading {
+            max-width: 500px;
+            margin: auto;
+        }
+        
+        .stats .grid h3 {
+            font-size: 35px;
+        }
+        
+        .stats .grid p {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        /*Cli*/
+        
+        .cli .grid {
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+        }
+        
+        .cli .grid>*:first-child {
+            grid-column: 1 / span 2;
+            grid-row: 1 / span 2;
+        }
+        /* Cloud */
+        
+        .cloud .grid {
+            grid-template-columns: 4fr 3fr;
+        }
+        /* Languages */
+        
+        .languages .flex {
+            flex-wrap: wrap;
+        }
+        
+        .languages .card {
+            text-align: center;
+            margin: 18px 10px 40px;
+            transition: transform 0.2s ease-in;
+        }
+        
+        .languages .card h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .languages .card:hover {
+            transform: translateY(-15px);
+        }
+        /* Features */
+        
+        .features-head img,
+        .docs-head img {
+            width: 200px;
+            justify-self: flex-end;
+        }
+        
+        .features-sub-head img {
+            width: 300px;
+            justify-self: flex-end;
+        }
+        
+        .features-main .card>i {
+            margin-right: 20px;
+        }
+        
+        .features-main .grid {
+            padding: 30px;
+        }
+        
+        .features-main .grid>*:first-child {
+            grid-column: 1 / span 3;
+        }
+        
+        .features-main .grid>*:nth-child(2) {
+            grid-column: 1 / span 2;
+        }
+        /*Docs*/
+        
+        .docs-main h3 {
+            margin: 20px 0;
+        }
+        
+        .docs-main .grid {
+            grid-template-columns: 1fr 2fr;
+            align-items: flex-start;
+        }
+        
+        .docs-main nav li {
+            font-size: 17px;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            border-bottom: 1px #ccc solid;
+        }
+        
+        .docs-main a:hover {
+            font-weight: bold;
+        }
+        /* Footer */
+        
+        .footer .social a {
+            margin: 0 10px;
+        }
+        
+        .fa-github:hover {
+            color: #000000;
+        }
+        
+        .fa-facebook:hover {
+            color: #1773EA;
+        }
+        
+        .fa-instagram:hover {
+            color: #B32E87;
+        }
+        
+        .fa-twitter:hover {
+            color: #1C9CEA;
+        }
+        /* Animations */
+        
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInFromRight {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInFromTop {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInFromBottom {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+        /* Tablets and under */
+        
+        @media (max-width: 768px) {
+            .grid,
+            .showcase .grid,
+            .stats .grid,
+            .cli .grid,
+            .cloud .grid,
+            .features-main .grid,
+            .docs-main .grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr;
+            }
+            .showcase {
+                height: auto;
+            }
+            .showcase-text {
+                text-align: center;
+                margin-top: 40px;
+                animation: slideInFromTop 1s ease-in;
+            }
+            .showcase-form {
+                justify-self: center;
+                margin: auto;
+                animation: slideInFromBottom 1s ease-in;
+            }
+            .cli .grid>*:first-child {
+                grid-column: 1;
+                grid-row: 1;
+            }
+            .features-head,
+            .features-sub-head,
+            .docs-head {
+                text-align: center;
+            }
+            .features-head img,
+            .features-sub-head img,
+            .docs-head img {
+                justify-self: center;
+            }
+            .features-main .grid>*:first-child,
+            .features-main .grid>*:nth-child(2) {
+                grid-column: 1;
+            }
+        }
+        /* Mobile */
+        
+        @media (max-width: 500px) {
+            .navbar {
+                height: 110px;
+            }
+            .navbar .flex {
+                flex-direction: column;
+            }
+            .navbar ul {
+                padding: 10px;
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+            .showcase-form {
+                width: 300px;
+            }
+        }
+        
+        .btn3 {
+            height: 45px;
+            width: 10%;
+            border: none;
+            outline: none;
+            background-color: rgb(248, 26, 92);
+            color: white;
+            font-weight: 700;
+            border-radius: 60px;
+        }
+        
+        .btn3:hover {
+            background-color: #bb00d4;
+            transition: 0.5s;
+        }
+        
+        .testimonial {
+            margin-top: 20px;
+        }
+        
+        .news input {
+            height: 45px;
+            width: 55%;
+            border: 2px solid white;
+            outline: none;
+            background: black;
+            color: white;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+        
+        .news::placeholder {
+            color: white;
+        }
+        
+        .news p {
+            margin: 0;
+        }
+        
+        .news {
+            background-color: black;
+            color: white;
+        }
+        
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        body {
+            /* background: url('bg.jpg') no-repeat top center; */
+            background-size: cover;
+            height: 100vh;
+        }
+        
+        .wrapper {
+            position: absolute;
+            top: 50%;
+            left: 35%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 550px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            border-radius: 5px;
+            border: 0.5px solid #056DB0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+        }
+        
+        .wrapper .title h1 {
+            color: #fff;
+            margin-bottom: 25px;
+        }
+        
+        .contact-form {
+            display: flex;
+        }
+        
+        .input-fields {
+            display: flex;
+            flex-direction: column;
+            margin-right: 4%;
+        }
+        
+        .input-fields,
+        .msg {
+            width: 48%;
+        }
+        
+        .input-fields .input,
+        .msg textarea {
+            margin: 10px 0;
+            background: transparent;
+            border: 0px;
+            border-bottom: 1px solid #056DB0;
+            padding: 10px;
+            color: #fff;
+            width: 100%;
+        }
+        
+        .msg textarea {
+            height: 212px;
+        }
+        
+         ::-webkit-input-placeholder {
+            /* Chrome/Opera/Safari */
+            color: #fff;
+        }
+        
+         ::-moz-placeholder {
+            /* Firefox 19+ */
+            color: #ffff;
+        }
+        
+         :-ms-input-placeholder {
+            /* IE 10+ */
+            color: #fff;
+        }
+        
+        .btncf {
+            background-image: linear-gradient(to left bottom, #39b7dd, #20a5d4, #0392c9, #0080bd, #056db0);
+            text-align: center;
+            padding: 15px;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        
+        .btncf:hover {
+            background-image: linear-gradient(to right top, #0392c9, #0b97cc, #129ccf, #19a0d1, #20a5d4);
+            transition: 0.5s;
+        }
+        
+        @media screen and (max-width: 600px) {
+            .contact-form {
+                flex-direction: column;
+            }
+            .msg textarea {
+                height: 80px;
+            }
+            .input-fields,
+            .msg {
+                width: 100%;
+            }
+        }
+        
+        .btn {
+            display: inline-block;
+            background: black;
+            color: #fff;
+            padding: 8px 30px;
+            margin: 30px 0;
+            border-radius: 30px;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background: rgb(248, 26, 92);
+            text-decoration: none !important;
+        }
+        
+        #banner {
+            background: linear-gradient(to bottom, #bb00d4, white);
+            color: black !important;
+            padding-top: 5%;
+        }
+        
+        .promo-title {
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            font-size: 40px;
+            font-weight: 600;
+            margin-top: 100px;
+        }
+        
+        .play-btn {
+            width: 10 px;
+            height: 10 px;
+            margin: 20 px;
+        }
+        
+        #banner a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .bottom-img {
+            width: 100%;
+        }
+        
+        .h1 {
+            font-weight: 700;
+        }
+        
+        .btn1 {
+            height: 45px;
+            width: 35%;
+            border: none;
+            outline: none;
+            background-color: rgb(248, 26, 92);
+            color: white;
+            font-weight: 700;
+            border-radius: 60px;
+        }
+        
+        .btn1:hover {
+            background-color: #bb00d4;
+            transition: 0.5s;
+        }
+        
+        .card:hover {
+            box-shadow: -2px -1px 25px -4px rgba(205, 15, 207, 0.75);
+            -webkit-box-shadow: -2px -1px 25px -4px rgba(205, 15, 207, 0.75);
+            -moz-box-shadow: -2px -1px 25px -4px rgba(205, 15, 207, 0.75);
+            transition: 0.5s;
+        }
+        
+        .apple {
+            background: url(women2.jpg)no-repeat;
+            background-size: cover;
+            height: 80vh;
+            width: 100%
+        }
+        
+        .apple h1 {
+            font-family: 'Lobster', cursive;
+        }
+        
+        .news {
+            background-color: black;
+            color: white;
+        }
+        
+        .btn2 {
+            height: 46px;
+            width: 100px;
+            background: white;
+            margin-left: -3px;
+            border: 2px solid white;
+            font-weight: 600;
+        }
+        
+        .news input {
+            height: 45px;
+            width: 55%;
+            border: 2px solid white;
+            outline: none;
+            background: black;
+            color: white;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+        
+        .news::placeholder {
+            color: white;
+        }
+        
+        .news p {
+            margin: 0;
+        }
+        
+        .btn3 {
+            height: 45px;
+            width: 10%;
+            border: none;
+            outline: none;
+            background-color: rgb(248, 26, 92);
+            color: white;
+            font-weight: 700;
+            border-radius: 60px;
+        }
+        
+        .btn3:hover {
+            background-color: #bb00d4;
+            transition: 0.5s;
+        }
+        
+        .testimonial {
+            margin-top: 20px;
+        }
+        
+        $grey: #F5F5F5;
+        $dark-grey: #323B40;
+        $light-blue: #E0F5FF;
+        $blue: #B9E5FE;
+        $dark-blue: #00A5FA;
+        $green: #B7E0DC;
+        $dark-green: #019888;
+        $lime: #C7E8C8;
+        $dark-lime: #42B045;
+        $yellow: #FFEEBA;
+        $dark-yellow: #FF9901;
+        $pink: #FABAD0;
+        $dark-pink: #EF075F;
+        $red: #FEC9C6;
+        $dark-red: #FD3D08;
+        @mixin color-div($color1,
+        $color2) {
+            background-color: $color1;
+            color: $color2;
+        }
+        
+        .container {
+            padding: 0rem 0rem;
+        }
+        
+        h4 {
+            margin: 2rem 0rem;
+        }
+        
+        .panel {
+            border-radius: 4px;
+            padding: 1rem;
+            margin-top: 0.2rem;
+            @include color-div($grey,
+            $dark-grey);
+            &.panel-blue {
+                @include color-div($light-blue,
+                $dark-blue);
+            }
+            &.panel-big-height {
+                min-height: 150px;
+            }
+        }
+        
+        .item {
+            border-radius: 4px;
+            padding: 0.5rem;
+            margin: 0.2rem;
+            &.item-blue {
+                @include color-div($blue,
+                $dark-blue);
+            }
+            &.item-green {
+                @include color-div($green,
+                $dark-green);
+            }
+            &.item-lime {
+                @include color-div($lime,
+                $dark-lime);
+            }
+            &.item-yellow {
+                @include color-div($yellow,
+                $dark-yellow);
+            }
+            &.item-pink {
+                @include color-div($pink,
+                $dark-pink);
+            }
+            &.item-red {
+                @include color-div($red,
+                $dark-red);
+            }
+            &.item-big-width {
+                min-width: 380px;
+            }
+        }
+    </style>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="container flex">
+
+
+            <b><h1 class="logo"> SR Textiles </h1></b>
+            <nav>
+                <ul>
+                    <li><a href="" style="text-decoration: none;">Home</a></li>
+                    <li><a href="about" style="text-decoration: none;">About</a></li>
+                    <li><a href="services" style="text-decoration: none;">Services</a></li>
+                    <li><a href="product" style="text-decoration: none;">Products</a></li>
+                    <li><a href="wholesale" style="text-decoration: none;">Wholesale</a></li>
+                    <li><a href="contact" style="text-decoration: none;">Testmonials</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <section id="product">
+        <form id="buynowForm">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-lg-5 py-5 m-auto text-center">
+                        <h1> Wholesale Products </h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="card border-0 bg-light">
+                            <div class="card-body">
+                                <img src="images/srt10.jpg" width="10" height="250" class="img-fluid">
+                                <p> Traditional silk sarees </p>
+                                <div class="product-quantity"> Quantity: 4 </div>
+                                <span class="product-price"> Rs.3560</span>
+                                <button class="buynow btn btn-dark" style="color: white" ;>Buy Now &#8594;</button>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card border-0 bg-light">
+                            <div class="card-body">
+                                <img src="images/sr11.jpg" width="10" height="250" class="img-fluid">
+                                <p> Traditional silk dhotis </p>
+                                <div class="product-quantity"> Quantity: 10 </div>
+                                <span class="product-price"> Rs. 4456
+                                </span>
+                                <button class="buynow btn btn-dark" style="color: white" ;>Buy Now &#8594;</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card border-0 bg-light">
+                            <div class="card-body">
+                                <img src="images/sr15.jpg" width="10" height="250" class="img-fluid">
+                                <p> Bedsheets </p>
+                                <div class="product-quantity"> Quantity: 15 </div>
+                                <span class="product-price"> Rs. 3880
+                                </span>
+                                <button class="buynow btn btn-dark" style="color: white" ;>Buy Now &#8594;</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card border-0 bg-light">
+                            <div class="card-body">
+                                <img src="images/sr16.jpg" width="10" height="250" class="img-fluid">
+                                <p> Towels </p>
+                                <div class="product-quantity"> Quantity: 15 </div>
+                                <span class="product-price"> Rs. 900
+                                </span>
+                                <button class="buynow btn btn-dark" style="color: white" ;>Buy Now &#8594;</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card border-0 bg-light">
+                            <div class="card-body">
+                                <img src="images/sr85.jpg" width="10" height="250" class="img-fluid">
+                                <p> Designer piece </p>
+                                <div class="product-quantity"> Quantity: 5 </div>
+                                <span class="product-price"> Rs. 500
+                                </span>
+                                <button class="buynow btn btn-dark" style="color: white" ;>Buy Now &#8594;</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card border-0 bg-light">
+                            <div class="card-body">
+                                <img src="images/sr18.jpg" class="img-fluid">
+                                <p> Cotton dhotis </p>
+                                <div class="product-quantity"> Quantity: 25 </div>
+                                <span class="product-price"> Rs. 4500
+                                </span>
+                                <button class="buynow btn btn-dark" style="color: white" ;>Buy Now &#8594;</button>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card border-0 bg-light">
+                            <div class="card-body">
+                                <img src="images/sr72.jpeg" width="10" height="250" class="img-fluid">
+                                <p> Kerchiefs </p>
+                                <div class="product-quantity"> Quantity: 30 </div>
+                                <span class="product-price"> Rs.670
+                                </span>
+                                <button class="buynow btn btn-dark" style="color: white" ;>Buy Now &#8594;</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card border-0 bg-light">
+                            <div class="card-body">
+                                <img src="images/sr84.webp" width="10" height="250" class="img-fluid"> <br>
+                                <p> Pillow covers </p>
+                                <span div class="product-quantity"> Quantity: 20 </span>
+                                <span class="product-price"> Rs.1670
+                                </span>
+                                <button class="buynow btn btn-dark" style="color: white" ;>Buy Now &#8594;</button>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+        </form>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
+
+        </form>
+    </section>
+    <!-- </section>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body> -->
+    <style>
+        @import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        html {
+            background-color: #eaf0f2;
+        }
+        
+        header {
+            text-align: center;
+            padding-top: 100px;
+            margin-bottom: 300px;
+            font-size: 35px;
+        }
+        
+        header h2 {
+            color: #f0525f;
+        }
+        
+        header span {
+            color: #eaa03f;
+        }
+        /* The footer is fixed to the bottom of the page */
+        
+        footer {
+            position: fixed;
+            bottom: 0;
+        }
+        
+        @media (max-height:800px) {
+            footer {
+                position: static;
+            }
+            header {
+                padding-top: 40px;
+            }
+        }
+        
+        .footer-distributed {
+            background-color: #2d2a30;
+            box-sizing: border-box;
+            width: 100%;
+            text-align: left;
+            font: bold 16px sans-serif;
+            padding: 50px 50px 60px 50px;
+            margin-top: 80px;
+        }
+        
+        .footer-distributed .footer-left,
+        .footer-distributed .footer-center,
+        .footer-distributed .footer-right {
+            display: inline-block;
+            vertical-align: top;
+        }
+        /* Footer left */
+        
+        .footer-distributed .footer-left {
+            width: 30%;
+        }
+        
+        .footer-distributed h3 {
+            color: #ffffff;
+            font: normal 36px 'Cookie', cursive;
+            margin: 0;
+        }
+        
+        .footer-distributed h3 span {
+            color: #e0ac1c;
+        }
+        /* Footer links */
+        
+        .footer-distributed .footer-links {
+            color: #ffffff;
+            margin: 20px 0 12px;
+        }
+        
+        .footer-distributed .footer-links a {
+            display: inline-block;
+            line-height: 1.8;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .footer-distributed .footer-company-name {
+            color: #8f9296;
+            font-size: 14px;
+            font-weight: normal;
+            margin: 0;
+        }
+        /* Footer Center */
+        
+        .footer-distributed .footer-center {
+            width: 35%;
+        }
+        
+        .footer-distributed .footer-center i {
+            background-color: #33383b;
+            color: #ffffff;
+            font-size: 25px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 42px;
+            margin: 10px 15px;
+            vertical-align: middle;
+        }
+        
+        .footer-distributed .footer-center i.fa-envelope {
+            font-size: 17px;
+            line-height: 38px;
+        }
+        
+        .footer-distributed .footer-center p {
+            display: inline-block;
+            color: #ffffff;
+            vertical-align: middle;
+            margin: 0;
+        }
+        
+        .footer-distributed .footer-center p span {
+            display: block;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 2;
+        }
+        
+        .footer-distributed .footer-center p a {
+            color: #e0ac1c;
+            text-decoration: none;
+            ;
+        }
+        /* Footer Right */
+        
+        .footer-distributed .footer-right {
+            width: 30%;
+        }
+        
+        .footer-distributed .footer-company-about {
+            line-height: 20px;
+            color: #92999f;
+            font-size: 13px;
+            font-weight: normal;
+            margin: 0;
+        }
+        
+        .footer-distributed .footer-company-about span {
+            display: block;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .footer-distributed .footer-icons {
+            margin-top: 25px;
+        }
+        
+        .footer-distributed .footer-icons a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            background-color: #33383b;
+            border-radius: 2px;
+            font-size: 20px;
+            color: #ffffff;
+            text-align: center;
+            line-height: 35px;
+            margin-right: 3px;
+            margin-bottom: 5px;
+        }
+        
+        .footer-distributed .footer-icons a:hover {
+            background-color: #3F71EA;
+        }
+        
+        .footer-links a:hover {
+            color: #3F71EA;
+        }
+        
+        @media (max-width: 880px) {
+            .footer-distributed .footer-left,
+            .footer-distributed .footer-center,
+            .footer-distributed .footer-right {
+                display: block;
+                width: 100%;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+            .footer-distributed .footer-center i {
+                margin-left: 0;
+            }
+        }
+    </style>
+    <footer class="footer-distributed">
+
+        <div class="footer-left">
+            <h3>SR<span>Textiles</span></h3>
+
+            <p class="footer-links">
+                <a href="">Home</a> |
+                <a href="about">About</a> |
+                <a href="services">Services</a> |
+                <a href="product">Products</a> |
+                <a href="wholesale">Wholesale</a> |
+                <a href="contact">Testimonials</a>
+            </p>
+
+            <p class="footer-company-name">Copyright © 2022 <strong>SRTextiles</strong> All rights reserved</p>
+        </div>
+
+        <div class="footer-center">
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>Anthiyur</span> Erode
+                </p>
+            </div>
+
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+91 80563 57165</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:sagar00001.co@gmail.com">srtextiles@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p class="footer-company-about">
+                <span>About the company</span>
+                <strong>SR Textiles</strong> is a textile company where we manufacture products using powerloom and produce high quality outputs.
+            </p>
+            <div class="footer-icons">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+
+            </div>
+        </div>
+    </footer>
+    <script>
+        const buynow = document.getElementsByClassName("buynow");
+
+        for (var i = 0; i < buynow.length; i++) {
+            button = buynow[i];
+            button.addEventListener("click", buyitem);
+        }
+
+        async function buyitem(event) {
+            button = event.target;
+            const form = document.getElementById("buynowForm");
+            var item = button.parentElement;
+            var price = item.getElementsByClassName("product-price")[0];
+            var name = item.getElementsByTagName("p")[0];
+            var quantity = item.getElementsByClassName("product-quantity")[0];
+
+            const hiddenField = document.createElement("input");
+            hiddenField.type = "hidden";
+            hiddenField.name = "item";
+            hiddenField.value = name.innerText;
+            form.appendChild(hiddenField);
+            const hiddenField2 = document.createElement("input");
+            hiddenField2.type = "hidden";
+            hiddenField2.name = "price";
+            hiddenField2.value = price.innerText;
+            form.appendChild(hiddenField2);
+
+            const hiddenField3 = document.createElement("input");
+            hiddenField3.type = "hidden";
+            hiddenField3.name = "quantity";
+            hiddenField3.value = quantity ? quantity.innerText : 1;
+            form.appendChild(hiddenField3);
+            form.action = `/buynow`;
+        }
+    </script>
+</body>
+
+</html>

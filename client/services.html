@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/utilities.css">
+    <title> SR Textiles </title>
+</head>
+
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+         :root {
+            --primary-color: #561c8c;
+            --secondary-color: #1c3fa8;
+            --dark-color: #002240;
+            --light-color: #f4f4f4;
+            --success-color: #5cb85c;
+            --error-color: #d9534f;
+        }
+        
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        ul {
+            list-style-type: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+        
+        h1,
+        h2 {
+            font-weight: 250;
+            line-height: 1.2;
+            margin: 10px 0;
+        }
+        
+        p {
+            margin: 10px 0;
+        }
+        
+        img {
+            width: 100%;
+        }
+        
+        code,
+        pre {
+            background: #333;
+            color: #fff;
+            padding: 10px;
+        }
+        
+        .hidden {
+            visibility: hidden;
+            height: 0;
+        }
+        /* Navbar */
+        
+        .navbar {
+            background-color: black;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            height: 70px;
+        }
+        
+        .navbar ul {
+            display: flex;
+        }
+        
+        .navbar a {
+            color: #fff;
+            padding: 10px;
+            margin: 0 5px;
+        }
+        
+        .navbar a:hover {
+            border-bottom: 2px #fff solid;
+        }
+        
+        .navbar .flex {
+            justify-content: space-between;
+        }
+        /* Showcase */
+        
+        .showcase {
+            height: 400px;
+            background-color: var(--primary-color);
+            color: #fff;
+            position: relative;
+        }
+        
+        .showcase h1 {
+            font-size: 40px;
+        }
+        
+        .showcase p {
+            margin: 20px 0;
+        }
+        
+        .showcase .grid {
+            overflow: visible;
+            grid-template-columns: 55% auto;
+            gap: 30px;
+        }
+        
+        .showcase-text {
+            animation: slideInFromLeft 1s ease-in;
+        }
+        
+        .showcase-form {
+            position: relative;
+            top: 60px;
+            height: 350px;
+            width: 400px;
+            padding: 40px;
+            z-index: 100;
+            justify-self: flex-end;
+            animation: slideInFromRight 1s ease-in;
+        }
+        
+        .showcase-form .form-control {
+            margin: 30px 0;
+            color: black;
+        }
+        
+        .showcase-form input[type='text'],
+        .showcase-form input[type='email'] {
+            border: 0;
+            border-bottom: 1px solid #b4becb;
+            width: 100%;
+            padding: 3px;
+            font-size: 16px;
+        }
+        
+        .showcase-form input:focus {
+            outline: none;
+        }
+        
+        .showcase::before,
+        .showcase::after {
+            content: '';
+            position: absolute;
+            height: 100px;
+            bottom: -70px;
+            right: 0;
+            left: 0;
+            background: #fff;
+            transform: skewY(-3deg);
+            -webkit-transform: skewY(-3deg);
+            -moz-transform: skewY(-3deg);
+            -ms-transform: skewY(-3deg);
+        }
+        /* Stats */
+        
+        .stats {
+            padding-top: 100px;
+            animation: slideInFromBottom 1s ease-in;
+        }
+        
+        .stats-heading {
+            max-width: 500px;
+            margin: auto;
+        }
+        
+        .stats .grid h3 {
+            font-size: 35px;
+        }
+        
+        .stats .grid p {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        /*Cli*/
+        
+        .cli .grid {
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+        }
+        
+        .cli .grid>*:first-child {
+            grid-column: 1 / span 2;
+            grid-row: 1 / span 2;
+        }
+        /* Cloud */
+        
+        .cloud .grid {
+            grid-template-columns: 4fr 3fr;
+        }
+        /* Languages */
+        
+        .languages .flex {
+            flex-wrap: wrap;
+        }
+        
+        .languages .card {
+            text-align: center;
+            margin: 18px 10px 40px;
+            transition: transform 0.2s ease-in;
+        }
+        
+        .languages .card h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .languages .card:hover {
+            transform: translateY(-15px);
+        }
+        /* Features */
+        
+        .features-head img,
+        .docs-head img {
+            width: 200px;
+            justify-self: flex-end;
+        }
+        
+        .features-sub-head img {
+            width: 300px;
+            justify-self: flex-end;
+        }
+        
+        .features-main .card>i {
+            margin-right: 20px;
+        }
+        
+        .features-main .grid {
+            padding: 30px;
+        }
+        
+        .features-main .grid>*:first-child {
+            grid-column: 1 / span 3;
+        }
+        
+        .features-main .grid>*:nth-child(2) {
+            grid-column: 1 / span 2;
+        }
+        /*Docs*/
+        
+        .docs-main h3 {
+            margin: 20px 0;
+        }
+        
+        .docs-main .grid {
+            grid-template-columns: 1fr 2fr;
+            align-items: flex-start;
+        }
+        
+        .docs-main nav li {
+            font-size: 17px;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            border-bottom: 1px #ccc solid;
+        }
+        
+        .docs-main a:hover {
+            font-weight: bold;
+        }
+        /* Footer */
+        
+        .footer .social a {
+            margin: 0 10px;
+        }
+        
+        .fa-github:hover {
+            color: #000000;
+        }
+        
+        .fa-facebook:hover {
+            color: #1773EA;
+        }
+        
+        .fa-instagram:hover {
+            color: #B32E87;
+        }
+        
+        .fa-twitter:hover {
+            color: #1C9CEA;
+        }
+        /* Animations */
+        
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInFromRight {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInFromTop {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInFromBottom {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+        /* Tablets and under */
+        
+        @media (max-width: 768px) {
+            .grid,
+            .showcase .grid,
+            .stats .grid,
+            .cli .grid,
+            .cloud .grid,
+            .features-main .grid,
+            .docs-main .grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr;
+            }
+            .showcase {
+                height: auto;
+            }
+            .showcase-text {
+                text-align: center;
+                margin-top: 40px;
+                animation: slideInFromTop 1s ease-in;
+            }
+            .showcase-form {
+                justify-self: center;
+                margin: auto;
+                animation: slideInFromBottom 1s ease-in;
+            }
+            .cli .grid>*:first-child {
+                grid-column: 1;
+                grid-row: 1;
+            }
+            .features-head,
+            .features-sub-head,
+            .docs-head {
+                text-align: center;
+            }
+            .features-head img,
+            .features-sub-head img,
+            .docs-head img {
+                justify-self: center;
+            }
+            .features-main .grid>*:first-child,
+            .features-main .grid>*:nth-child(2) {
+                grid-column: 1;
+            }
+        }
+        /* Mobile */
+        
+        @media (max-width: 500px) {
+            .navbar {
+                height: 110px;
+            }
+            .navbar .flex {
+                flex-direction: column;
+            }
+            .navbar ul {
+                padding: 10px;
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+            .showcase-form {
+                width: 300px;
+            }
+        }
+        
+        .btn3 {
+            height: 45px;
+            width: 10%;
+            border: none;
+            outline: none;
+            background-color: rgb(248, 26, 92);
+            color: white;
+            font-weight: 700;
+            border-radius: 60px;
+        }
+        
+        .btn3:hover {
+            background-color: #bb00d4;
+            transition: 0.5s;
+        }
+        
+        .testimonial {
+            margin-top: 20px;
+        }
+        
+        .news input {
+            height: 45px;
+            width: 55%;
+            border: 2px solid white;
+            outline: none;
+            background: black;
+            color: white;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+        
+        .news::placeholder {
+            color: white;
+        }
+        
+        .news p {
+            margin: 0;
+        }
+        
+        .news {
+            background-color: black;
+            color: white;
+        }
+        
+         ::-webkit-input-placeholder {
+            /* Chrome/Opera/Safari */
+            color: #fff;
+        }
+        
+         ::-moz-placeholder {
+            /* Firefox 19+ */
+            color: #ffff;
+        }
+        
+         :-ms-input-placeholder {
+            /* IE 10+ */
+            color: #fff;
+        }
+        
+        .btncf {
+            background-image: linear-gradient(to left bottom, #39b7dd, #20a5d4, #0392c9, #0080bd, #056db0);
+            text-align: center;
+            padding: 15px;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        
+        .btncf:hover {
+            background-image: linear-gradient(to right top, #0392c9, #0b97cc, #129ccf, #19a0d1, #20a5d4);
+            transition: 0.5s;
+        }
+        
+        @media screen and (max-width: 600px) {
+            .contact-form {
+                flex-direction: column;
+            }
+            .msg textarea {
+                height: 80px;
+            }
+            .input-fields,
+            .msg {
+                width: 100%;
+            }
+        }
+        /* -- About Section Start From here -- */
+        
+        #about-section {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 80px 10%;
+        }
+        
+        .about-right {
+            width: 47%;
+        }
+        
+        .about-right ul li {
+            display: flex;
+            align-items: center;
+        }
+        
+        .about-right h1 {
+            color: #e74d06;
+            font-size: 37px;
+            margin-bottom: 5px;
+        }
+        
+        .about-right p {
+            color: #444;
+            line-height: 36px;
+            font-size: 15px;
+        }
+        
+        .about-right .address {
+            margin: 25px 0;
+        }
+        
+        .about-right .address ul li {
+            margin-bottom: 5px;
+        }
+        
+        .address .address-logo {
+            margin-right: 15px;
+            color: #e74d06;
+        }
+        
+        .address .saprater {
+            margin: 0 25px;
+        }
+        
+        .about-right .expertise ul {
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .expertise h3 {
+            margin-bottom: 10px;
+        }
+        
+        .expertise .expertise-logo {
+            font-size: 19px;
+            margin-right: 10px;
+            color: #e74d06;
+        }
+    </style>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="container flex">
+
+
+            <b><h2 class="logo"> SR Textiles </h2></b>
+            <nav>
+                <ul>
+                    <li><a href="/" style="text-decoration: none;">Home</a></li>
+                    <li><a href="about" style="text-decoration: none;">About</a></li>
+                    <li><a href="services" style="text-decoration: none;">Services</a></li>
+                    <li><a href="product" style="text-decoration: none;">Products</a></li>
+                    <li><a href="wholesale" style="text-decoration: none;">Wholesale</a></li>
+                    <li><a href="contact" style="text-decoration: none;">Testmonials</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</body>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <!-- Linking CSS File index.css -->
+
+    <link rel="stylesheet" href="css/style2.css">
+
+    <title>Our Services</title>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <h1 class="text-center mt-5 display-3 fw-bold">Our <span class="theme-text">Services</span></h1>
+        <hr class="mx-auto mb-5 w-25">
+        <div class="row mb-5">
+            <div class="col-12 col-sm-6 col-md-3 m-auto">
+                <!-- card starts here -->
+                <div class="card shadow">
+                    <img src="images/srt7.jpg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="text-center">Company</h3>
+                        <hr class="mx-auto w-75">
+                        <p>
+                            SR textiles is a place where the company resembles more of a home than a workplace environment. The employees are benifited with bonus for occasions and also they are given a part of 10% of the profit as a share.
+                        </p>
+                    </div>
+                </div>
+                <!-- card ends here -->
+            </div>
+            <!-- col ends here -->
+            <div class="col-12 col-sm-6 col-md-3 m-auto">
+                <!-- card starts here -->
+                <div class="card shadow">
+                    <img src="images/srt6.jpg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="text-center">Product manufacture</h3>
+                        <hr class="mx-auto w-75">
+                        <p>
+                            The products that are produced by the powerloom are kept in a room. The products are seperated accordingly as bedsheets, towels, sarees, etc by the employees and arranged. The products are sold as wholesale also.
+                        </p>
+                    </div>
+                </div>
+                <!-- card ends here -->
+            </div>
+            <!-- col ends here -->
+            <div class="col-12 col-sm-6 col-md-3 m-auto">
+                <!-- card starts here -->
+                <div class="card shadow">
+                    <img src="images/srt8.jpg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="text-center">Product Supply</h3>
+                        <hr class="mx-auto w-75">
+                        <p>
+                            The products that are arranged are ready for the distribution. The products are packed neatly and are sent to the particular address for delivery.<br> <b> Free Delivery </b>
+                    </div>
+                    </p>
+                </div>
+                <!-- card ends here -->
+            </div>
+            <!-- col ends here -->
+            <div class="col-12 col-sm-6 col-md-3 m-auto">
+                <!-- card starts here -->
+                <div class="card shadow">
+                    <img src="images/srt9.jpg" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="text-center">Founder</h3>
+                        <hr class="mx-auto w-75">
+                        <p>
+                            I'm <b> SIVAKUMAR P </b> - THE FOUNDER OF <b> SR TEXTILES </b> <br> SR Textiles always produce the No 1 - best quality and trustworthy products and are delivered freely for the people. The employees are also benifited with
+                            our share in profit.
+
+                        </p>
+                    </div>
+                </div>
+                <!-- card ends here -->
+            </div>
+            <!-- col ends here -->
+        </div>
+    </div>
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Footer - Sagar Developer</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <style>
+        @import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        
+        html {
+            background-color: #eaf0f2;
+        }
+        
+        header {
+            text-align: center;
+            padding-top: 100px;
+            margin-bottom: 300px;
+            font-size: 35px;
+        }
+        
+        header h2 {
+            color: #f0525f;
+        }
+        
+        header span {
+            color: #eaa03f;
+        }
+        /* The footer is fixed to the bottom of the page */
+        
+        footer {
+            position: fixed;
+            bottom: 0;
+        }
+        
+        @media (max-height:800px) {
+            footer {
+                position: static;
+            }
+            header {
+                padding-top: 40px;
+            }
+        }
+        
+        .footer-distributed {
+            background-color: #2d2a30;
+            box-sizing: border-box;
+            width: 100%;
+            text-align: left;
+            font: bold 16px sans-serif;
+            padding: 50px 50px 60px 50px;
+            margin-top: 80px;
+        }
+        
+        .footer-distributed .footer-left,
+        .footer-distributed .footer-center,
+        .footer-distributed .footer-right {
+            display: inline-block;
+            vertical-align: top;
+        }
+        /* Footer left */
+        
+        .footer-distributed .footer-left {
+            width: 30%;
+        }
+        
+        .footer-distributed h3 {
+            color: #ffffff;
+            font: normal 36px 'Cookie', cursive;
+            margin: 0;
+        }
+        
+        .footer-distributed h3 span {
+            color: #e0ac1c;
+        }
+        /* Footer links */
+        
+        .footer-distributed .footer-links {
+            color: #ffffff;
+            margin: 20px 0 12px;
+        }
+        
+        .footer-distributed .footer-links a {
+            display: inline-block;
+            line-height: 1.8;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .footer-distributed .footer-company-name {
+            color: #8f9296;
+            font-size: 14px;
+            font-weight: normal;
+            margin: 0;
+        }
+        /* Footer Center */
+        
+        .footer-distributed .footer-center {
+            width: 35%;
+        }
+        
+        .footer-distributed .footer-center i {
+            background-color: #33383b;
+            color: #ffffff;
+            font-size: 25px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 42px;
+            margin: 10px 15px;
+            vertical-align: middle;
+        }
+        
+        .footer-distributed .footer-center i.fa-envelope {
+            font-size: 17px;
+            line-height: 38px;
+        }
+        
+        .footer-distributed .footer-center p {
+            display: inline-block;
+            color: #ffffff;
+            vertical-align: middle;
+            margin: 0;
+        }
+        
+        .footer-distributed .footer-center p span {
+            display: block;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 2;
+        }
+        
+        .footer-distributed .footer-center p a {
+            color: #e0ac1c;
+            text-decoration: none;
+            ;
+        }
+        /* Footer Right */
+        
+        .footer-distributed .footer-right {
+            width: 30%;
+        }
+        
+        .footer-distributed .footer-company-about {
+            line-height: 20px;
+            color: #92999f;
+            font-size: 13px;
+            font-weight: normal;
+            margin: 0;
+        }
+        
+        .footer-distributed .footer-company-about span {
+            display: block;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .footer-distributed .footer-icons {
+            margin-top: 25px;
+        }
+        
+        .footer-distributed .footer-icons a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            background-color: #33383b;
+            border-radius: 2px;
+            font-size: 20px;
+            color: #ffffff;
+            text-align: center;
+            line-height: 35px;
+            margin-right: 3px;
+            margin-bottom: 5px;
+        }
+        
+        .footer-distributed .footer-icons a:hover {
+            background-color: #3F71EA;
+        }
+        
+        .footer-links a:hover {
+            color: #3F71EA;
+        }
+        
+        @media (max-width: 880px) {
+            .footer-distributed .footer-left,
+            .footer-distributed .footer-center,
+            .footer-distributed .footer-right {
+                display: block;
+                width: 100%;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+            .footer-distributed .footer-center i {
+                margin-left: 0;
+            }
+        }
+    </style>
+
+    <footer class="footer-distributed">
+
+        <div class="footer-left">
+            <h3>SR<span>Textiles</span></h3>
+
+            <p class="footer-links">
+                <a href="">Home</a> |
+                <a href="about">About</a> |
+                <a href="services">Services</a> |
+                <a href="product">Products</a> |
+                <a href="wholesale">Wholesale</a> |
+                <a href="contact">Testimonials</a>
+            </p>
+
+            <p class="footer-company-name">Copyright © 2022 <strong>SRTextiles</strong> All rights reserved</p>
+        </div>
+
+        <div class="footer-center">
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>Anthiyur</span> Erode
+                </p>
+            </div>
+
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+91 80563 57165</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:sagar00001.co@gmail.com">srtextiles@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p class="footer-company-about">
+                <span>About the company</span>
+                <strong>SR Textiles</strong> is a textile company where we manufacture products using powerloom and produce high quality outputs.
+            </p>
+            <div class="footer-icons">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
